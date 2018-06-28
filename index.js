@@ -11,7 +11,7 @@ app.engine('html', require('ejs').renderFile);
 
 app.use(express.static('public'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded());
+//app.use(bodyParser.urlencoded());
 
 app.use(session({
   secret: '@#@$MYSIGN#@$#$',
@@ -36,9 +36,4 @@ app.listen(3333, () => {
   console.log("Example app listening on port 3333!");
 });
 
-
-var mail = require('./router/main')(app, con);
-var register = require('./router/register')(app, con);
-var login = require('./router/login')(app, con);
-var match = require('./router/match')(app, con);
-var list = require('./router/list')(app, con);
+var join = require('./route/join')(app, con);
